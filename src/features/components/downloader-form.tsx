@@ -42,7 +42,7 @@ export const DownloaderForm = () => {
       if (!data?.status) {
         toast.error(data?.error);
       } else {
-        toast.success(data?.message);
+        toast.success("");
         form.reset();
       }
     },

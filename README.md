@@ -13,7 +13,7 @@ MediaMate is a fast, intuitive web application built with Next.js that allows us
 
 ## Tech Stack
 
-- Next.js 13+
+- Next.js 15+
 - React
 - ytdl-core
 - Tailwind CSS
@@ -41,17 +41,6 @@ npm run dev
 3. Click the Download button
 4. Wait for the conversion to complete
 5. Your file will download automatically
-
-## API Reference
-
-### POST /api/download
-
-```javascript
-{
-  "url": "string",  // YouTube video URL
-  "format": "string" // 'mp3' or 'mp4'
-}
-```
 
 ## Contributing
 

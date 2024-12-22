@@ -6,10 +6,10 @@ import { FaPlay } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <section className="h-full w-full flex items-center justify-center flex-col">
-      <div className=" max-w-4xl space-y-4 md:space-y-8 w-full px-8 md:px-0">
+    <section className="h-[calc(100vh-9vh)] w-full flex items-center justify-center flex-col">
+      <div className="max-w-5xl space-y-4 md:space-y-8 w-full px-8 md:px-0 flex items-center flex-col">
         <div className="relative w-full space-y-4 md:space-y-8 flex items-center flex-col">
-          <BsStars className="size-12 text-primary absolute left-0 -top-12" />
+          <BsStars className="size-12 text-yellow-400 absolute left-0 -top-12" />
           <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#ff0000]/15 absolute -right-10 -top-12">
             <FaYoutube className="size-6 text-[#FF0000]" />
           </div>
@@ -24,11 +24,6 @@ export default function Home() {
             Fast, free, and simple to use, enjoy your favorite content offline
             anytime, anywhere. anywhere.
           </p>
-          <div
-            style={{
-              clipPath: "polygon(0% 46%, 70% 0%, 66% 16%, 48% 20%, 32% 28%)",
-            }}
-          />
 
           <div className="w-10 h-10 flex items-center justify-center rounded-full bg-red-500  absolute left-6 bottom-4">
             <IoMusicalNotes className="size-6 text-white" />
@@ -37,7 +32,9 @@ export default function Home() {
             <FaPlay className="size-4 text-white" />
           </div>
         </div>
-        <DownloaderForm />
+        <div className="max-w-2xl w-full">
+          <DownloaderForm />
+        </div>
       </div>
     </section>
   );
