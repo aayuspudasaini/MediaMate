@@ -95,7 +95,7 @@ export const DownloaderForm = () => {
                     {...field}
                     placeholder="Enter URL"
                     className={cn(
-                      "w-full rounded-full h-12 pl-[6rem] pr-12 truncate",
+                      "w-full rounded-full h-12 pl-[6rem] pr-[7rem] truncate",
                       {
                         "border-red-600": form.formState.errors.url,
                       }

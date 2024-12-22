@@ -6,7 +6,7 @@ export const AppLogo = () => {
   return (
     <Link
       href="/"
-      className="relative text-lg md:text-xl font-extrabold flex items-center gap-x-0.5 mr-auto"
+      className="relative text-lg md:text-xl font-extrabold flex items-center gap-x-0.5"
     >
       <IoMusicalNotes className="size-6 text-primary" />
       MediaMate

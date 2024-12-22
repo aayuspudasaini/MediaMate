@@ -14,15 +14,15 @@ export default function Home() {
             <FaYoutube className="size-6 text-[#FF0000]" />
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold text-center leading-8">
-            <span className="text-primary">MediaMate</span> - Download & Convert
-            in Seconds
+            <span className="text-primary">MediaMate</span> - Music & Videos
+            Your Way
           </h1>
-          <p className="text-lg md:text-xl text-center mt-4 font-medium text-muted-foreground max-w-2xl">
+          <p className="text-lg md:text-xl text-center mt-4 font-normal text-muted-foreground max-w-2xl">
             Transform your YouTube experience with&nbsp;
             <span className="text-primary font-semibold">MediaMate</span> -
             Download videos and music in premium MP3/MP4 quality instantly.
             Fast, free, and simple to use, enjoy your favorite content offline
-            anytime, anywhere. anywhere.
+            anytime, anywhere.
           </p>
 
           <div className="w-10 h-10 flex items-center justify-center rounded-full bg-red-500  absolute left-6 bottom-4">
