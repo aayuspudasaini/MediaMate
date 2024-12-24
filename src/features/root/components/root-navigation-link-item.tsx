@@ -19,14 +19,14 @@ export const RootNavigationBarLinkItem = ({
     <div className="relative flex flex-col justify-center h-full" {...props}>
       <Link
         href={item.isActive ? item.url : "#"}
-        className={cn("text-sm font-normal text-muted-foreground", {
+        className={cn("text-sm text-muted-foreground font-medium", {
           "text-primary": pathname === item.url,
         })}
       >
         {item.title}
       </Link>
       <span
-        className={cn("h-[1px] w-full bg-transparent absolute bottom-0", {
+        className={cn("h-[1.2px] w-full bg-transparent absolute bottom-0", {
           "bg-primary": pathname === item.url,
         })}
       />
