@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import ytdl from "ytdl-core";
+import fs from 'fs';
 
 export async function GET(request: Request) {
     try {
@@ -31,34 +32,54 @@ export async function GET(request: Request) {
             );
         }
 
-        // Call the API to download the video
-        const info = await ytdl.getInfo(url);
+        // validation the url 
+        if (!ytdl.validateURL(url)) {
+            return NextResponse.json(
+                { data: false, message: 'Invalid URL' },
+                { status: 400 }
+            );
+        }
 
-        console.log(info);
+        // Call the API to get video information
+        const info = await ytdl.getBasicInfo(url);
 
-        const fileName = `${info.videoDetails.title}.${format}`;
+        // Get the video title
+        const title = info.videoDetails.title;
 
         if (format !== "mp3") {
-            const response = ytdl(url, { filter: "videoandaudio", quality: "highestvideo" });
-            return NextResponse.json({
-                status: true,
-                message: "Data fetched Successfully",
-                data: {
-                    fileName: fileName,
-                    // response
-                }
-            })
+            const res = ytdl(url, { filter: "video", quality: "highestaudio" })
+                .pipe(fs.createWriteStream(`${title}.mp4`))
+                .on('finish', () =>
+                    NextResponse.json({
+                        status: true,
+                        message: "MP4 Downloaded Successfully",
+                    })
+                ).on('error', (err) => NextResponse.json({
+                    status: false,
+                    message: "Failed to download MP4",
+                    error: err
+                }));
+
+            return NextResponse.json(res);
+
         } else {
-            const response = ytdl(url, { filter: "audioonly", quality: "highestaudio" });
-            return NextResponse.json({
-                status: true,
-                message: "Data fetched Successfully",
-                data: {
-                    fileName: fileName,
-                    // response
-                }
-            })
+            const res = ytdl(url, { filter: "video", quality: "highestaudio" })
+                .pipe(fs.createWriteStream(`${title}.mp3`))
+                .on('finish', () =>
+                    NextResponse.json({
+                        status: true,
+                        message: "MP3 Downloaded Successfully",
+                    }))
+                .on('error', (err) => NextResponse.json({
+                    status: false,
+                    message: "Failed to download MP4",
+                    error: err
+                }));
+            return NextResponse.json(res);
+
         }
+
+
 
 
     } catch (e) {
